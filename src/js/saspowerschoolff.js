@@ -74,7 +74,7 @@ function main () {
     });
 
     const page_url = window.location.href.split('#')[0];
-    if (page_url === "https://powerschool.sas.edu.sg/guardian/home.html") {
+    if (page_url.match("https://powerschool.sas.edu.sg/guardian/home") != null) {
         main_page();
     } else if (page_url.match("https://powerschool.sas.edu.sg/guardian/scores") != null) {
         class_page();
@@ -113,9 +113,6 @@ function main_page () {
 function class_page () {
     // Show final percent
     const number = extractFinalPercent($("table.linkDescList").html());
-    
-    
-    
     if (!number) {
         return;
     }
